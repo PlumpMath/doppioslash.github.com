@@ -6,4 +6,9 @@ comments: false
 sharing: false
 footer: false
 ---
-Sample!
+Mind Contortionist and Bit Enchantress.
+
+A polyglot developer language hopping through Mobile, Games and Functional programming.
+
+Interested in Metaprogramming, Clojure, AI, WebGL, Javascript, Boo, Erlang, CouchDB, ObjC
+
