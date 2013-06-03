@@ -1,0 +1,109 @@
+---
+layout: post
+title: "Concurrency in Clojure"
+date: 2013-06-03 10:00
+comments: true
+categories: [clojure slides concurrency]
+---
+
+### Overview of Concurrency in Clojure ###
+
+[Slides]( http://slid.es/doppioslash/concurrency-in-clojure )
+
+#### The Old Way ###
+
+Everyone has had to contend with handling a variable that is changed by different parts of a program at the same time.
+
+Problems like Race Conditions and Deadlocks are handled using Locking, an error-prone technique, without digging deeper to reach the real culprit: mutable state.
+
+Clojure doesn't take as radical a stance as Erlang, which has solved the problem by enforcing single assignment, it instead uses Software Transactional Memory.
+
+#### The Clojure Way ####
+
+Clojure applies functional programming staples of immutable data structures and avoidance of side effects and for the remaining state it uses Software Transactional Memory, which in practice is similar to how a database controls concurrent access: changes of state are wrapped in transactions.
+
+Transactions ensure:
+
+- Atomicity: either all changes of a transaction are applied or none.
+- Consistency: only valid changes are committed.
+- Isolation: no transaction sees the effect of other transactions.
+- Durability: changes are persistent.
+
+Clojure has a unique philosophy about state, inspired by Alfred North Whitehead: it states that mutable state doesn't actually exist, but it's an illusion, in a similar way to how a sequence of still frames produces the illusion of movement if shown in a sequence fast enough to trick the eye.
+
+So mutable state is actually a causally-linked sequence of immutable values and time is derived from the perception of these successions. We apply pure functions to immutable values to derive new immutable values, assigning identity to those sequences of values.
+
+- Value: an immutable magnitude, quantity, number, or composite of these.
+- Identity: a putative entity we associate with a series of causally related values (states) over time
+- State: value of an identity at a moment in time
+- Time: relative before/after ordering of causal values.
+
+#### Immutability ####
+
+Applying a function that modifies a data structure will return a new data structure rather than modifying the old one.
+Values are immutable, they never change. 
+
+
+{% codeblock Immutability - immutability.clj %}
+=> (def a-map {:key "value"})
+#'user/a-map    
+=> (assoc a-map :another-key "more values")
+{:key "value", :another-key "more values"}
+=> a-map
+{:key "value"}
+{% endcodeblock %}
+
+
+#### Software Transactional Memory #####
+
+Each will need to be updated, derefenced using a particular function
+Reads need not be coordinated, just grab latest value of an identity
+provides a mechanism for managing references and updates across threads that is easier to use and less error-prone than lock-based concurrency.
+
+##### Vars #####
+
+Vars support thread-local state.
+
+{% codeblock Vars - vars.clj %}
+{% endcodeblock %}
+
+##### Refs #####
+shared state sync
+multiple refs in one trasaction
+
+{% codeblock Refs - refs.clj %}
+=> (def a-ref (ref 42))
+#'user/a-ref
+=> (ref-set a-ref 43)
+IllegalStateException No transaction running  clojure.lang.LockingTransaction.getEx (LockingTransaction.java:208)
+=> (dosync (ref-set a-ref 43))
+43
+{% endcodeblock %}
+
+##### Atoms #####
+
+shared, indipendent state sync
+thread-safe
+atomic
+
+{% codeblock Atoms - atoms.clj %}
+=> (def an-atom (atom 42))
+#'user/an-atom
+=> @an-atom
+42
+=> (swap! an-atom inc)
+43
+=> @an-atom
+43
+{% endcodeblock %}
+
+##### Agents #####
+
+provide a thread-safe mechanism for asynchronous, uncoordinated updates.
+
+{% codeblock Agents - agents.clj %}
+=> (def an-agent (agent 42))
+#'user/an-agent
+=> (defn send-message
+{% endcodeblock %}
+
