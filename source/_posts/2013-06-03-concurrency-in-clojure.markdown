@@ -190,3 +190,11 @@ If the updating function fails the agent will be in an error state and need to b
 #### More ####
 
 We haven't covered Delays, Futures and Promises.
+
+### References ####
+
+[Concurrency and Parallelism in Clojure](http://clojure-doc.org/articles/language/concurrency_and_parallelism.html)
+
+[Plurarsight's Clojure Concurrency Tutorial](http://pluralsight.com/training/Courses/TableOfContents/clojure-concurrency-tutorial)
+
+[Clojure Inside Out](http://shop.oreilly.com/product/0636920030409.do)
