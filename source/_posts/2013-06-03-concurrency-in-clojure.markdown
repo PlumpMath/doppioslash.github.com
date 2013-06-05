@@ -3,6 +3,7 @@ layout: post
 title: "Concurrency in Clojure"
 date: 2013-06-03 10:00
 comments: true
+author: "Claudia Doppioslash"
 categories: [clojure slides concurrency]
 ---
 
