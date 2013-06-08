@@ -10,6 +10,7 @@
   <meta property=”og:image” content=”http://blog.doppioslash.com/images/previewlogo.png” />
   <link rel="image_src" href="http://blog.doppioslash.com/images/previewlogo.png"/>
   {% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ content | raw_content }}{% endif %}{% endcapture %}
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}"/>
   <meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}">
   {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
   
