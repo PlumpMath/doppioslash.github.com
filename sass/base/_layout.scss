@@ -1,9 +1,9 @@
 $min-width: 895px;
-$logo-height: 110px;
-$logo-width: 110px;
+$logo-height: 160px;
+$logo-width: 160px;
 $logo-radius: 10px;
-$logo-inner-height: 90px;
-$logo-inner-width: 90px;
+$logo-inner-height: 150px;
+$logo-inner-width: 150px;
 $logo-inner-radius: 50%;
 
 body {
@@ -13,7 +13,7 @@ body {
 }
 
 #sidebar {
-  width: 27%;
+  width: 23%;
   padding-left: 1.5%;
   min-width: 240px;
   position: fixed;
@@ -26,17 +26,11 @@ aside#logo {
   display: block;
   width: $logo-width;
   height: $logo-height;
-  border-radius: $logo-radius;
-  -moz-border-radius: $logo-radius;
-  -webkit-border-radius: $logo-radius;
   margin-left: 30px;
   margin-top: 40px;
 }
 
 aside#logo div {
-  border-radius: $logo-inner-radius;
-  -moz-border-radius: $logo-inner-radius;
-  -webkit-border-radius: $logo-inner-radius;
   width: $logo-inner-width;
   height: $logo-inner-height;
   text-indent: -9999px;
