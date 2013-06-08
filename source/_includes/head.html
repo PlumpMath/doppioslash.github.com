@@ -7,10 +7,8 @@
   <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
   <meta name="author" content="{{ site.author }}">
 
-  <meta property=”og:image” content=”http://blog.doppioslash.com/images/lambdacatlogo.png” />
-  <link rel="image_src" href="http://blog.doppioslash.com/images/lambdacatlogo.png"/>
-  <meta name="title" content="Recursive Thoughts" />
-  <meta name="description" content="Functional game programming" />
+  <meta property=”og:image” content=”http://blog.doppioslash.com/images/previewlogo.png” />
+  <link rel="image_src" href="http://blog.doppioslash.com/images/previewlogo.png"/>
   {% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ content | raw_content }}{% endif %}{% endcapture %}
   <meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}">
   {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}

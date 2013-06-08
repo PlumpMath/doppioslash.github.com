@@ -1,7 +1,7 @@
 {% unless page.no_header %}
   <header>
     {% if index %}
-      <h2 class="entry-title">
+      <h2 itemprop="name" class="entry-title">
         {% if post.external-url %}
         <a href="{{ post.external-url }}">{% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}</a>
         <a href="{{ root_url }}{{ post.url }}" class="anchor">&#9875;</a>
