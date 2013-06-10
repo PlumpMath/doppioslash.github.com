@@ -23,14 +23,13 @@
   </li>
  {% if site.googleplus_user %}
   <li>
-    <g:plus href="https://plus.google.com/{{ site.googleplus_user }}" rel="author"></g:plus>
+    <g:plus style="float: left;" width="100" href="https://plus.google.com/{{ site.googleplus_user }}" rel="author"></g:plus>
   {% endif %}
   {% if site.twitter_user %}
-    <a href="https://twitter.com/{{ site.twitter_user }}" class="twitter-follow-button" data-show-count="false" data-size="large" data-dnt="true">Follow @{{ site.twitter_user }}</a>
   </li>
   {% endif %}
   <li>
-    {% include asides/recent_posts.html %}
+    {% include asides/twitter.html %}
   </li>
   <li class="link rss">
     <a href="/atom.xml">rss feed</a>
@@ -57,5 +56,4 @@
   </a>
 </aside>
 
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 

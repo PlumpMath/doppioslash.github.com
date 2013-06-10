@@ -4,7 +4,10 @@ title: "Concurrency in Clojure"
 date: 2013-06-03 10:00
 comments: true
 author: "Claudia Doppioslash"
-categories: [clojure slides concurrency]
+categories: 
+- Clojure
+- Slides
+- Concurrency
 ---
 
 ### Overview of Concurrency in Clojure ###
@@ -64,7 +67,7 @@ Values are immutable, they never change.
 Clojure has 4 reference types: var, atom, ref and agent which represent identities.
 
 All references contain some value, that can only be changed using the appropriate functions, which are different for every type.
-Dereferencing will return the state of a reference at the time deref was invoked, which doesn't guarantee that it wont' be different at a later point.
+Dereferencing will return the state of a reference at the time deref was invoked, which doesn't guarantee that it won't be different at a later point.
 
 Dereferencing doesn't block, reads need not be coordinated, it's just grabbing the latest value of an identity.
 
